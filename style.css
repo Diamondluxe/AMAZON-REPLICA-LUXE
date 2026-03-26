@@ -5,25 +5,24 @@
 }
 .navbar{
     height: 60px;
-    background-color: #0f1111;
+    background-color: #131d1d;
     color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-around;
 }
 /**Box 1:LOGO**/
 .navlogo{
+
     height: 50px;
     width: 113px;
-    /* display: flex; */
-    /* align-content: center; */
+    cursor: pointer;      /* Makes the mouse turn into a hand ☝️ */
 }
 .logo{
-    background-image: url("Amazon-logo.png");
+    background-image: url("Images/Amazon-logo.png");
     background-size: cover;
-    height: 50px;
     width: 100%;
-
 }
 .border{
     border: 1px solid transparent;
@@ -34,7 +33,7 @@
 /**BOX 2: Address**/
 .address{
     padding: 9px;
-    
+     cursor: pointer; 
 }
 .add-first{
     color: #cccccc;
@@ -58,36 +57,159 @@
     justify-content: space-evenly;
     background-color: transparent;
     width: 730px;
-    height: 60px;
+    height: 40px;
     border-radius: 4px;
+    border: 3px solid transparent;
     color: #0f1111;
+    overflow: hidden;
  }
+ 
+ /* When the user clicks the select OR the input, the whole bar turns border into orange*/
+ .search-border:focus-within{
+    border: 2px solid orange;
+ }
+
  .search-select{
     margin-left: 10px;
-    padding: 10px 4px 10px 9px;
-    height: 40px;
+    padding: 0px 4px 0px 9px;
+    height: 100%;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-    width: 50px;
+    width: 52px;
     /* text-align: center; */
     background-color: #f3f3f3;
     font-size: 0.79rem;
     border: none;
+    outline: none;
+     cursor: pointer; 
  }
+
  .search-input{
-    height: 40px;
-    width: 100%;
+    height: 100%;
+    /* width: 100%; */
+    flex-grow: 1;
     border: none;
+    outline: none;
     padding-left: 10px;
     font-size: 0.95rem;
  }
  .search-icon{
+    font-size: 1.2rem;
+    color: #333;
     background-color: orange;
-    height: 40px;
+    height: 100%;
     width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+    padding: 0;
+    border: none;
+    cursor: pointer;      
  }
+
+ /*Box 4: Language*/
+ .nav-language{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 13px 9px 13px 9px;
+ }
+ .lang-select{
+    background-color: transparent;
+    color: white;
+    font-weight: 800;
+    border: none;
+    outline: none;
+ }
+ .lang-select option{
+    color: black;
+ }
+
+ /*BOX 4: NAV SIGN IN*/
+ .nav-signin{
+    color: white;
+    padding: 9px;
+    cursor: pointer;
+ }
+ .sign{
+    font-size: 12px;
+ }
+ .acc{
+    font-size: 14px;
+    font-weight: 800;
+ }
+  /*BOX 4: NAV Returns and orders*/
+ .nav-orders{
+    color: white;
+    padding: 9px;
+    cursor: pointer;
+ }
+ .return{
+    font-size: 12px;
+ }
+ .order{
+    font-size: 14px;
+    font-weight: 800;
+ }
+ /*BOX: 5 Carts*/
+ .nav-cart{
+    padding: 9px;
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    align-items:end;
+ }
+ .cart{
+    font-size: 13px;
+    font-weight: 800;
+ }
+  /*Panel*/
+.panel{
+    color: white;
+    width: 100%;
+    height: 40px;
+    background-color: #222f3d;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+        font-size: 14px;
+  }
+.all{
+    display: flex;
+    font-weight: 650;
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+    cursor: pointer;
+}
+.all i{
+    font-weight: 550;
+    font-size: 20px;
+}
+.menu{
+        width: 80%;
+}
+.menu p{
+    display: inline;
+    margin-left: 8px;
+    padding: 9px;
+    cursor: pointer;
+}
+.offer{
+    display: flex;
+    font-weight: 650;
+    padding: 9px;
+    cursor: pointer;
+}
+
+/*Main section*/
+.main-section{
+    background-image: url("Images/Backround-image.jpg");
+    height: 400px;
+    background-size: cover;
+}
