@@ -3,7 +3,13 @@
     font-family: arial;
     box-sizing: border-box;
 }
+body {
+    padding-top: 60px; /* This creates a 60px "cushion" at the top of the whole page */
+}
 .navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
     position:fixed;
     z-index: 999;
     height: 60px;
@@ -59,7 +65,9 @@
     align-items: center;
     justify-content: space-evenly;
     background-color: transparent;
-    width: 730px;
+    width: auto;
+    flex-grow: 1;
+    margin: 0 10px;
     height: 40px;
     border-radius: 4px;
     border: 3px solid transparent;
@@ -231,6 +239,12 @@
     padding: 20px 0px 15px;
     margin-bottom: 25px;
     position: relative;
+}
+@media (max-width: 768px) {
+    .box, .box2 {
+        width: 90%; /* One big box per row on mobile */
+        margin: 10px auto;
+    }
 }
 .box-in{
   
@@ -461,4 +475,38 @@ ul a{
     justify-content: center;
     margin-bottom:  40px;
      color: white;
+}
+
+/* --- Mobile Responsive Fixes --- */
+@media (max-width: 850px) {
+    /* 1. Fix the Search Bar */
+    .nav-search {
+        width: 50%; /* Shrink it so other icons can fit */
+    }
+
+    /* 2. Hide extra items to prevent overlapping */
+    .address, .nav-language {
+        display: none; 
+    }
+
+    /* 3. Stack the content boxes */
+    .box, .box2 {
+        width: 45%; /* 2 boxes per row on tablets */
+    }
+
+    /* 4. Fix Footer */
+    .foot-mid {
+        flex-wrap: wrap;
+        height: auto;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box, .box2 {
+        width: 95%; /* 1 box per row on phones */
+    }
+    .nav-search {
+        display: none; /* Usually, mobile sites put search on a new line */
+    }
 }
