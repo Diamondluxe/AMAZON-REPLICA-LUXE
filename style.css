@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 body {
+    overflow-x: hidden; /* Prevents horizontal scrolling on mobile */
     padding-top: 60px; /* This creates a 60px "cushion" at the top of the whole page */
 }
 .navbar{
@@ -408,6 +409,7 @@ ul a{
     background-color: transparent;
     border: 1px solid rgb(182, 178, 178);
     position: relative;
+    flex-wrap: wrap;
 }
 .s1{
     display: flex;
@@ -476,37 +478,102 @@ ul a{
     margin-bottom:  40px;
      color: white;
 }
-
-/* --- Mobile Responsive Fixes --- */
+/* --- Final Mobile & Tablet Responsive Fixes --- */
 @media (max-width: 850px) {
-    /* 1. Fix the Search Bar */
+    /* 1. Hide unwanted items to keep it clean */
+    .address, 
+    .nav-language, 
+    .nav-orders, 
+    .nav-cart,
+    .menu p { 
+        display: none !important; 
+    }
+
+    /* 2. Navbar: Logo, Search, and Sign-in only */
+    .navbar {
+        justify-content: space-between;
+        padding: 0 10px;
+        width: 100%;
+    }
+
+    .navlogo {
+        width: 80px;
+    }
+
     .nav-search {
-        width: 50%; /* Shrink it so other icons can fit */
+        flex-grow: 1; /* Takes up all middle space */
+        margin: 0 10px;
+        min-width: 120px;
     }
 
-    /* 2. Hide extra items to prevent overlapping */
-    .address, .nav-language {
-        display: none; 
+    /* 3. Panel Fix (Stop the half-side glitch) */
+    .panel {
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+    .menu {
+        width: auto;
     }
 
-    /* 3. Stack the content boxes */
+    /* 4. Content Boxes: 2 per row for tablets */
     .box, .box2 {
-        width: 45%; /* 2 boxes per row on tablets */
+        width: 45%; 
+        height: auto; /* Let them grow with content */
+        margin-bottom: 15px;
     }
 
-    /* 4. Fix Footer */
+    /* 5. Footer: Stack columns vertically */
     .foot-mid {
         flex-wrap: wrap;
         height: auto;
-        padding-bottom: 20px;
+        padding: 20px;
+        justify-content: flex-start;
+    }
+    
+    .foot-mid ul {
+        width: 50%; /* Each list takes half the width */
+        margin-bottom: 20px;
+    }
+
+    /* 6. Stop Horizontal Scroll */
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .main-section {
+    height: 250px;  
+    background-image: url("Images/Cover\ photo.jpg");          /* Shorter height for mobile screens */
+    background-repeat: no-repeat;
+    background-position: center top; /* Keeps the middle of your Amazon banner visible */
+    background-size: 100% 100%;    /* Ensures the image fills the area without stretching */
+    width: 100%;
+    /* margin-top: 60px;          Matches your navbar height so nothing is hidden */
+}
+
+.content-section {
+    margin-top: -50px;         /* This "Killer" trick overlaps the boxes onto the banner slightly, just like the real Amazon! */
+    padding-top: 10px;
+}
+}
+
+/* Extra Small Screen (Phones) */
+@media (max-width: 480px) {
+    .box, .box2 {
+        width: 95%; /* 1 big box per row */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* On very small phones, search bar might be too tight. 
+       If you want it to stay, keep this as is. */
+    .nav-search {
+        min-width: 100px;
+    }
+    
+    .logoo {
+        margin-left: 0; /* Center footer logo */
+        margin-right: 0;
     }
 }
 
-@media (max-width: 480px) {
-    .box, .box2 {
-        width: 95%; /* 1 box per row on phones */
-    }
-    .nav-search {
-        display: none; /* Usually, mobile sites put search on a new line */
-    }
-}
